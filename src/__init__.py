@@ -17,7 +17,7 @@ def create_app(test_config=None):
 
     @app.route('/hello')
     def hello():
-        return 'Hello, World!'
+        return 'Welcome to memchess!'
     
     @app.route('/chess', methods=['POST'])
     def calc():
