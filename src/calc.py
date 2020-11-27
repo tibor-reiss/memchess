@@ -1,3 +1,4 @@
+import math
 from typing import List, Optional
 
 from src.rules import ChessPieceFactory
@@ -48,6 +49,11 @@ def run_task(
                 start_j=j,
                 pieces=pieces)
             remove_last_piece(pieces)
+            complete = board_size**2 - (i-1)*board_size - (j)
+            complete = math.comb(complete, number_of_pieces) / math.comb(board_size ** 2, number_of_pieces)
+            complete = 100.0 - complete * 100.0
+            if main_task:
+                update_db(instance_path, id, f'RUNNING...{complete:.2f}%')
     if main_task:
         update_db(instance_path, id, str(total))
     return total
