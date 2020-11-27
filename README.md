@@ -29,4 +29,5 @@ The sqlite3 file will be located in <your_virtual_environment>/var/src-instance/
 ### Running the tests
 ```bash
 $ pytest
+$ pytest tests/test_rules.py -k "Test_King"
 ```
